@@ -77,7 +77,7 @@
   "dependencies": {
     "bluebird": "^3.4.1",
     "dialog": "^0.1.8",
-    "ensime-client": "0.5.0",
+    "ensime-client": "^0.7.0",
     "fs-extra": "^0.30.0",
     "loglevel": "^1.4.1",
     "which": "^1.2.8"
