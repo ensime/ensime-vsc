@@ -1,5 +1,6 @@
 import * as vscode from 'vscode'
 import {InstanceManager} from '../extension'
+import * as utils from "../utils"
 
 let diagnosticCollection = vscode.languages.createDiagnosticCollection("ensime-scala")
 var diagnosticMap = {}
@@ -25,9 +26,10 @@ export function register(manager: InstanceManager) : vscode.Disposable {
         .map((d) => documentMap[d.uri.fsPath] = d)
 
     return vscode.workspace.onDidSaveTextDocument((document) => {
-        documentMap[document.fileName] = document;
-        const instance = manager.instanceOfFile(document.fileName)
-        instance.api.typecheckFile(document.fileName)
+        let fn = utils.getFilenameDriveUpper(document)
+        documentMap[fn] = document;
+        const instance = manager.instanceOfFile(fn)
+        instance.api.typecheckFile(fn)
     })
 }
 
