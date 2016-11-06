@@ -42,7 +42,6 @@ export function activate(context: vscode.ExtensionContext) {
 
     this.subscriptions = []
 
-    
     this.someInstanceStarted = false
 
 
@@ -136,7 +135,7 @@ function startInstance(dotEnsimePath: string) {
             typeHover = vscode.languages.registerHoverProvider('scala', hoverProvider);
             completionsDisposable = vscode.languages.registerCompletionItemProvider('scala', Completions.completionsProvider())
 
-           
+
 
             instanceManager.registerInstance(instance)
 
