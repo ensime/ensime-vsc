@@ -7,7 +7,6 @@ let { dotEnsimesFilter, allDotEnsimesInPaths, parseDotEnsime} = ensimeClient.dot
 import { startClient } from './ensime-startup'
 import * as isScalaSource from './utils'
 import logapi = require("loglevel")
-import dialog = require("dialog")
 
 import * as TypeCheck from './features/typecheck'
 import * as TypeHoverProvider from './features/typehoverprovider'

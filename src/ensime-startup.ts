@@ -50,7 +50,7 @@ function startEnsimeServer(parsedDotEnsime: DotEnsime) {
         log.debug('starting from classpath file (coursier)')
         let cpF = mkClasspathFilename(parsedDotEnsime.scalaVersion, ensimeServerVersion)
         const startFromCPFile = () => startServerFromFile(cpF, parsedDotEnsime, ensimeServerFlags)
-    
+
         if(!classpathFileOk(cpF)) {
             log.debug('No classpath file found matching versions, creating with coursier')
             return fileUtils.ensureExists(packageDir()).then((packageDir) => {
