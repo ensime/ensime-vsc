@@ -2,7 +2,6 @@ import * as vscode from 'vscode';
 import * as path from 'path'
 import * as process from 'process'
 import * as which from 'which'
-import * as dialog from 'dialog'
 
 export function isScalaSource(editor : vscode.TextEditor) {
     return (path.extname(editor.document.fileName) in ['.scala'])
