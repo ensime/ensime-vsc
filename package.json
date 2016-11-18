@@ -70,11 +70,14 @@
     "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "devDependencies": {
-    "vscode": "^1.0.0",
+    "@types/node": "^6.0.40",
     "typescript": "^2.0.3",
-    "@types/node": "^6.0.40"
+    "vscode": "^1.0.0",
+    "@types/mocha": "^2.2.32"
   },
   "dependencies": {
+    "@types/loglevel": "^1.4.29",
+    "@types/which": "^1.0.28",
     "bluebird": "^3.4.1",
     "dialog": "^0.1.8",
     "ensime-client": "^0.7.0",

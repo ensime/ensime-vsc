@@ -2,7 +2,6 @@ import * as vscode from 'vscode';
 import * as path from 'path'
 import * as process from 'process'
 import * as which from 'which'
-import * as dialog from 'dialog'
 
 export function isScalaSource(editor : vscode.TextEditor) {
     return (path.extname(editor.document.fileName) in ['.scala'])
@@ -46,14 +45,18 @@ export function mkAssemblyJarFilename(scalaEdition, ensimeServerVersion) {
 
 let driveRegex = "^[a-z]:"
 export function getFilenameDriveUpper(document : vscode.TextDocument) : string {
-    let fn = document.fileName
-    if(fn.match(driveRegex) != null)
+    return getPathDriveUpper(document.fileName)
+}
+
+export function getPathDriveUpper(path : string) : string {
+
+    if(path.match(driveRegex) != null)
     {
-        return fn.substr(0, 2).toUpperCase() + fn.substr(2)
+        return path.substr(0, 2).toUpperCase() + path.substr(2)
     }
     else
     {
-        return fn
+        return path
     }
 }
 

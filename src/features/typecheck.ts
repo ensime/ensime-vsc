@@ -23,7 +23,7 @@ interface NoteMsg {
 export function register(manager: InstanceManager) : vscode.Disposable {
     vscode.workspace.textDocuments
         .filter((d) => d.languageId == "scala")
-        .map((d) => documentMap[d.uri.fsPath] = d)
+        .map((d) => documentMap[utils.getFilenameDriveUpper(d)] = d)
 
     return vscode.workspace.onDidSaveTextDocument((document) => {
         let fn = utils.getFilenameDriveUpper(document)
@@ -75,7 +75,7 @@ function noteSeverityToDiagSeverity(note : Note) {
 }
 
 function noteToDiag(note : Note) : Option<vscode.Diagnostic> {
-    let doc : vscode.TextDocument = documentMap[vscode.Uri.file(note.file).fsPath]
+    let doc : vscode.TextDocument = documentMap[utils.getPathDriveUpper(vscode.Uri.file(note.file).fsPath)]
 
     if(!doc)
     {
